@@ -1,0 +1,5 @@
+plant;userId;email;givenName;familyName;current;workCenter_workCenter;
+plant1;userID1;email1;givenname1;familyname1;true;WC1;
+plant2;userID2;email2;givenname2;familyname2;false;WC2;
+plant3;userID3;email3;givenname3;familyname3;true;WC3
+plant4;userID4;email4;givenname4;familyname4;true;WC1
