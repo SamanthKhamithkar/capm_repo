@@ -23,26 +23,19 @@ entity WorkCenters {
 }
 
 entity UserWorkCenter {
-  plant             : String(6) not null;
-  createdDateTime   : DateTime;
-  modifiedDateTime  : DateTime;
-  userId            : String(120) not null;
-  email             : type of userId;
-  givenName         : type of userId;
-  familyName        : type of userId;
-  current           : Boolean;
-  userWC            : Association to one UserData;
+  key uwcID         : Integer;
+  userWC            : Association to UserData;
   workCenter        : Association to WorkCenters;
 }
 
 entity UserData {
+  key userId        : String(120) not null;
   plant             : String(6) not null;
   createdDateTime   : DateTime;
   modifiedDateTime  : DateTime;
-  userId            : String(120) not null;
   email             : type of userId;
   givenName         : type of userId;
   familyName        : type of userId;
   current           : Boolean;
-  users              : Association to many UserWorkCenter on users.userWC = $self;
+  users             : Association to many UserWorkCenter on users.userWC = $self;
 }
