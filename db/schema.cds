@@ -10,12 +10,20 @@ entity Books : managed {
   stock  : Integer;
   price  : Decimal(9,2);
   currency : Currency;
+  authorMany : Association to many Books_Authors on authorMany.book = $self;
 }
 
 entity Authors : managed {
   key ID : Integer;
   name   : String(111);
   books  : Association to many Books on books.author = $self;
+  booksMany : Association to many Books_Authors on booksMany.author = $self;
+}
+
+//Many-to-Many
+entity Books_Authors {
+  book : Association to Books;
+  author : Association to Authors;
 }
 
 /** Hierarchically organized Code List for Genres */
