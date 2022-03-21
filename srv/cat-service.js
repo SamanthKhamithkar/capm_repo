@@ -17,4 +17,9 @@ module.exports = async function (){
   this.after ('READ','Books', each => {
     if (each.stock > 111)  each.title += ` -- 11% discount!`
   })
+
+  // Change the crticality of Stock property based on level field
+  this.after ('READ','StockInfo', each => {
+    each.level = each.stock > 500 ? 3 : 1
+  })
 }
